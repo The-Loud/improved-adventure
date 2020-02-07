@@ -23,5 +23,4 @@ Five dice are rolled.
 Players can choose how many they want to roll.
 Each player gets three rolls.
 
-
-Commit test
+added some stuff.
