@@ -46,14 +46,12 @@ while playing:
     turnset = 0
     print("Welcome to Yahtzee!\n")
     pnum = (int(input("How many are playing today? (1-4): ")))
-    for _ in range(pnum):
-        player_
-
+    players = [Player() for _ in range(pnum)]
+    dielist = []
+    counter = 0
     while turnset != 3:
         # Turn 1:
         # first roll of 5 dice.
-        dielist = []
-        counter = 0
         while counter < 5:
             dice = Die()
             dielist.append(dice.roll())
@@ -65,7 +63,7 @@ while playing:
         roller = int(input("Please enter the number of dice to reroll (1-5): "))
         turn(dielist, roller)
         print(dielist)
-
+        turnset += 1
 
     # If score isn't selected, Turn 2:
     # turn 3
