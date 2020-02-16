@@ -17,14 +17,11 @@ class Player():
                      'Fours':0, 'Fives': 0, 'Sixes': 0,
                      'Full House': 0, 'Four of a kind': 0, 'Little Straight': 0,
                      'Big Straight': 0, 'Chance': 0, 'Yahtzee': 0}
-
     def scorecard(self, score, spot):
         pass
 
     def p_card(self, card):
-        
-        print(
-
+        pass
 
 
 class Die():
@@ -58,29 +55,37 @@ playing = True
 
 while playing:
 
-    turnset = 0
+    rollset = 0
     print("Welcome to Yahtzee!\n")
     pnum = (int(input("How many are playing today? (1-4): ")))
     players = [Player() for _ in range(pnum)]
     print(f"Setting up scorecard for {pnum} players.")
 
-    while turnset != 2:
-        # Turn 1:
-        # first roll of 5 dice.
-        dielist = []
-        for _ in range(0, 5):
-            dice = Die()
-            dielist.append(dice.roll())
+
+    dec = input((f"What would you like to do? (Roll, view scorecard, quit)(1-3): "))
+
+    if dec == 2:
+        while rollset != 2:
+            # Turn 1:
+            # first roll of 5 dice.
+            dielist = []
+            for _ in range(0, 5):
+                dice = Die()
+                dielist.append(dice.roll())
+            p_dice(dielist)
+
+            # ask the user for input. reroll number or keep score
+            roller = int(input("Please enter the number of dice to reroll (1-5): "))
+            turn(dielist, roller)
+            rollset += 1
+
         p_dice(dielist)
 
-        # ask the user for input. reroll number or keep score
-        roller = int(input("Please enter the number of dice to reroll (1-5): "))
-        turn(dielist, roller)
-        turnset += 1
-
-    p_dice(dielist)
-
-    # ask if the user wants to reroll the dice or use their score
+    # ask the user what die they'd like to keep
+    keep = input("Please enter the die you'd like to keep, separated by spaces (enter zero to reroll all): ").split()
+    for i in range(len(keep)):
+        keep[i] = int(keep[i])
+    print(keep)
 
     # ask the user for input
 
