@@ -4,6 +4,7 @@ Yahtzee. 2 - 4 players.
 '''
 
 import random
+from prettytable import PrettyTable
 
 
 class Die():
@@ -16,21 +17,29 @@ class Die():
         return self.dice
 
     def f_roll(self):
-        input(f"Press ENTER to roll the dice")
+        input("Press ENTER to roll the dice")
         self.dice = self.roll(5)
         return self.dice
 
     def s_roll(self, dice):
+        print(self.dice)
         keep = input(f"Which dice would you like to keep? {dice}: ")
         keep = [int(i) for i in keep.split()]
         tmp = self.roll(5 - len(keep))
-        print(tmp)
+        self.dice = keep + tmp
+        return self.dice
 
-    def t_roll(self, roll):
-        pass
+    def t_roll(self, dice):
+        print(self.dice)
+        keep = input(f"Which dice would you like to keep? {dice}: ")
+        keep = [int(i) for i in keep.split()]
+        tmp = self.roll(5 - len(keep))
+        self.dice = keep + tmp
+        return self.dice
 
 
 die = Die()
+die.f_roll()
+die.s_roll(die.dice)
+die.t_roll(die.dice)
 print(die.dice)
-print(die.f_roll())
-print(die.s_roll(die.dice))
