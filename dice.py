@@ -4,7 +4,6 @@ Yahtzee. 2 - 4 players.
 '''
 
 import random
-from prettytable import PrettyTable
 
 
 class Die():
