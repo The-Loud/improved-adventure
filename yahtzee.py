@@ -7,28 +7,24 @@ from player import Player
 from dice import Die
 
 
-def p_dice(cup):
-    print(cup)
-
-
-def p_scorecard(player):
-    pass
-
-
 playing = True
 
 while playing:
 
     die = Die()
     print("Welcome to Yahtzee!\n")
-    pnum = (int(input("How many are playing today? (1-4): ")))
-    name = (input("Name of player 1: "))
-    players = [Player(name) for _ in range(pnum)]
-    print(f"Setting up scorecard for {pnum} players.")
+    name = (input("Enter your name: "))
+    # pnum = (int(input("How many are playing today? (1-4): ")))
+    # players = [Player(name) for _ in range(pnum)]
+    print(f"Setting up scorecard for {name}.")
+    player = Player(name)
 
-    dec = input((f"What would you like to do? (Roll, view scorecard, quit)(1-3): "))
+    while 1:
+        try:
+            dec = int(input(f"What would you like to do? (Roll, view scorecard, quit)(1-3): "))
+            break
+        except ValueError:
+            print(f"Please choose only 1, 2, or 3: ")
+            continue
 
-    # ask the user for input
-
-    # pop that number off the original list
-    # append x new random rolls to the list
+    
