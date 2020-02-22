@@ -5,6 +5,17 @@ Yahtzee. 2 - 4 players.
 
 from player import Player
 from dice import Die
+import scoring
+
+def decision():
+    while 1:
+        try:
+            dec = int(input(f"What would you like to do? (Roll, view scorecard, quit)(1-3): "))
+            break
+        except ValueError:
+            print("Please choose only 1, 2, or 3: ")
+            continue
+    return dec
 
 
 playing = True
@@ -19,12 +30,6 @@ while playing:
     print(f"Setting up scorecard for {name}.")
     player = Player(name)
 
-    while 1:
-        try:
-            dec = int(input(f"What would you like to do? (Roll, view scorecard, quit)(1-3): "))
-            break
-        except ValueError:
-            print(f"Please choose only 1, 2, or 3: ")
-            continue
-
-    
+    if decision() == 1:
+        die.f_roll()
+        score(player, die)
