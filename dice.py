@@ -18,6 +18,7 @@ class Die():
     def f_roll(self):
         input("Press ENTER to roll the dice")
         self.dice = self.roll(5)
+        print(self.dice)
         return self.dice
 
     def s_roll(self, dice):
@@ -35,10 +36,3 @@ class Die():
         tmp = self.roll(5 - len(keep))
         self.dice = keep + tmp
         return self.dice
-
-
-die = Die()
-die.f_roll()
-die.s_roll(die.dice)
-die.t_roll(die.dice)
-print(die.dice)

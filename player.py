@@ -1,4 +1,4 @@
-from prettyprint import PrettyTable
+from prettytable import PrettyTable
 
 
 class Player():
