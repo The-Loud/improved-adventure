@@ -5,7 +5,7 @@ Yahtzee. 2 - 4 players.
 
 from player import Player
 from dice import Die
-import scoring
+from scoring import nums
 
 def decision():
     while 1:
@@ -29,7 +29,8 @@ while playing:
     # players = [Player(name) for _ in range(pnum)]
     print(f"Setting up scorecard for {name}.")
     player = Player(name)
+    die.f_roll()
 
     if decision() == 1:
-        die.f_roll()
-        score(player, die)
+        die.s_roll(die)
+        nums(player, die)
